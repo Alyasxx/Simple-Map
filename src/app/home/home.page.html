@@ -1,16 +1,25 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
     <ion-title>
       Bridgette Simple Map
     </ion-title>
+    <!-- Dropdown basemap yang lebih rapi -->
+    <ion-buttons slot="end">
+      <ion-item lines="none" style="margin-right: 10px;">
+        <ion-label position="floating" style="margin-right: 8px;">Basemap</ion-label>
+        <ion-select id="basemapSelect" interface="popover"  (ionChange)="onBasemapChange($event)">
+          <ion-select-option value="topo-vector">Topographic</ion-select-option>
+          <ion-select-option value="streets">Streets</ion-select-option>
+          <ion-select-option value="satellite">Satellite</ion-select-option>
+          <ion-select-option value="hybrid">Hybrid</ion-select-option>
+          <ion-select-option value="dark-gray">Dark Gray</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      Bridgette's Simple</ion-toolbar>
-  </ion-header>
-
-  <div id="container"></div>
+<ion-content>
+  <!-- Map container -->
+  <div id="container" style="height: 100%;"></div>
 </ion-content>
